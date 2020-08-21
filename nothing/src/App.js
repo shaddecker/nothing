@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
 import Header from "./components/Header"
+import Cats from "./components/Cats"
 
 class App extends Component{
   constructor (){
@@ -13,6 +14,7 @@ class App extends Component{
   return (
     <div>
       <Header />
+      <Cats />
     </div>
   )
   }
