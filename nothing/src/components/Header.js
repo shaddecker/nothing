@@ -11,12 +11,8 @@ const Header = () => {
         <div className="nav1"></div>
         <div className="nav2"><Link to='/chuck'>Chuck</Link></div>
         <div className="nav3"><Link to='/advice'>Advice</Link></div>
-<<<<<<< HEAD
         <div className="nav4"><Link to='/trivia'>Trivia</Link></div>
-=======
-        <div className="nav4"><Link to='/jokes'>Jokes</Link></div>
->>>>>>> 4418e8a0faaca2a57720e1eb084ff5ff76108d54
-        <div className="nav5">Random5</div>
+        <div className="nav5"><Link to='/jokes'>Jokes</Link></div>
         <div className="nav6">Random6</div>
         <div className="nav7">Random7</div>
         <div className="nav8">Random8</div>

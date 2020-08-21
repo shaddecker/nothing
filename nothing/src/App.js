@@ -22,11 +22,8 @@ class App extends Component{
         <Switch>
           <Route path="/advice" render={()=> <Advice />} />
           <Route path="/chuck" render={()=> <Chuck />} />
-<<<<<<< HEAD
           <Route path="/trivia" render={()=> <Trivia />} />
-=======
           <Route path="/jokes" render={()=> <Jokes />} />
->>>>>>> 4418e8a0faaca2a57720e1eb084ff5ff76108d54
       </Switch>
       </main>
       <Footer />
