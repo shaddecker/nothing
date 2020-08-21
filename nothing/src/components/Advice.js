@@ -22,9 +22,9 @@ getRandomAdvice = async(event) =>{
 
 render(){
   return (
-    <div>
-        <button onClick={this.getRandomAdvice} >GetRandomAdvice</button>
-        <div>{this.state.item}</div>
+    <div className="container">
+        <button className="button" onClick={this.getRandomAdvice} >GetRandomAdvice</button>
+        <div className="content">{this.state.item}</div>
     </div>
   )
   }

@@ -20,7 +20,8 @@ class Chuck extends Component  {
   return (
     <div className="container">
       <div><img src={this.state.chuckAPI.icon_url} alt="" /></div>
-      <div>{this.state.chuckAPI.value}</div>
+      <div className="content">{this.state.chuckAPI.value}</div>
+      <div><button className="button" onClick={this.getChuckJoke}>Get Random Chuck Norris Joke</button></div>
     </div>
   )
   }
