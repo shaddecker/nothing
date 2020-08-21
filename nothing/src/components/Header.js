@@ -16,7 +16,9 @@ const Header = () => {
         <Link to='/advice'>
           <div className="nav2">Advice</div>
         </Link>
-          <div className="nav3">Random</div>
+        <Link to='/jokes' >
+          <div className="nav3">Jokes</div>
+        </Link>
           <div className="nav4">Random</div>
           <div className="nav5">Random</div>
           <div className="nav6">Random</div>
