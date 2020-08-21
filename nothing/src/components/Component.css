@@ -9,25 +9,88 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 14px;
     height:75px;
-    width: 840px;
+    width: 820px;
     background-color: black;
     display: grid;
     grid-template-rows: 23px 23px 23px;
-    grid-template-columns: 100px 25% 30px 30px 30px;
+    grid-template-columns: 150px 35% 100px 100px 100px;
+    padding: 10px;
 
+}
+.navSmall{
+    grid-row-start: 2;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 1;
+    font-size: 10px;
+}
+.navTitle{
+    grid-row-start: 3;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 1;
+    font-size: 30px;
+    font-weight: bold;
 }
 .nav1{
     grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 2;
+}
+.nav2{
+    grid-row-start: 1;
     grid-row-end: 1;
-    grid-column-start: 1;
-    grid-column-end: 1;
+    grid-column-start: 3;
+    grid-column-end: 3;
 }
-.navTitle{
-    font-size: 20px;
-    font-weight: bold;
+.nav3{
+    grid-row-start: 2;
+    grid-row-end: 2;
+    grid-column-start: 3;
+    grid-column-end: 3;
 }
-.navSmall{
-    font-size: 10px;
+.nav4{
+    grid-row-start: 3;
+    grid-row-end: 3;
+    grid-column-start: 3;
+    grid-column-end: 3;
+}
+.nav5{
+    grid-row-start: 1;
+    grid-row-end: 1;
+    grid-column-start: 4;
+    grid-column-end: 4;
+}
+.nav6{
+    grid-row-start: 2;
+    grid-row-end: 2;
+    grid-column-start: 4;
+    grid-column-end: 4;
+}
+.nav7{
+    grid-row-start: 3;
+    grid-row-end: 3;
+    grid-column-start: 4;
+    grid-column-end: 4;
+}
+.nav8{
+    grid-row-start: 1;
+    grid-row-end: 1;
+    grid-column-start: 5;
+    grid-column-end: 5;
+}
+.nav9{
+    grid-row-start: 2;
+    grid-row-end: 2;
+    grid-column-start: 5;
+    grid-column-end: 5;
+}
+.nav10{
+    grid-row-start: 3;
+    grid-row-end: 3;
+    grid-column-start: 5;
+    grid-column-end: 5;
 }
 
 .container{
@@ -35,6 +98,42 @@
     color: white;
     border: 1px solid black;
     width: 800px;
+    height: 600px;
     padding: 20px;
+}
 
+.button{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 14px;
+    height:25px;
+    width: auto;
+}
+
+.content{
+    padding: 20px;
+    font-size:18px;
+}
+a:hover{
+text-decoration:none;
+color: white;
+}
+a:visited{
+    text-decoration:none;
+    color: white;
+}
+a:link{
+    text-decoration:none;
+    color: white;
+}
+a:active{
+    text-decoration:none;
+    color: white;
+}
+
+.footerContainer{
+    background-color: black;
+    color: white;
+    border: none;
+    width: 840px;
+    height: 100px;
 }
