@@ -3,6 +3,8 @@ import './App.css';
 import axios from "axios";
 import Header from "./components/Header";
 import Chuck from "./components/Chuck";
+import Cats from "./components/Cats"
+
 
 class App extends Component{
   constructor (){
@@ -22,6 +24,7 @@ class App extends Component{
   return (
     <div>
       <Header />
+      <Cats />
       <Chuck chuckJoke = {this.state.chuckAPI} />
     </div>
   )
