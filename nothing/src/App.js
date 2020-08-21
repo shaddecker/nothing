@@ -15,7 +15,7 @@ class App extends Component{
   render(){
   return (
     <div>
-      <Route exact path="/" component={Header} />
+      <Header />
       <main>
         <Switch>
           <Route path="/advice" render={()=> <Advice />} />
