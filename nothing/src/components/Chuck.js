@@ -19,9 +19,10 @@ class Chuck extends Component  {
   render(){
   return (
     <div className="container">
+      <div><button className="button" onClick={this.getChuckJoke}>Get Random Chuck Norris Joke</button></div>
       <div><img src={this.state.chuckAPI.icon_url} alt="" /></div>
       <div className="content">{this.state.chuckAPI.value}</div>
-      <div><button className="button" onClick={this.getChuckJoke}>Get Random Chuck Norris Joke</button></div>
+      
     </div>
   )
   }

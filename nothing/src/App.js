@@ -4,7 +4,7 @@ import {Route, Link, Switch} from "react-router-dom";
 import Header from "./components/Header";
 import Chuck from "./components/Chuck";
 import Advice from "./components/Advice"
-
+import Footer from "./components/Footer";
 
 class App extends Component{
   constructor (){
@@ -22,6 +22,7 @@ class App extends Component{
           <Route path="/chuck" render={()=> <Chuck />} />
       </Switch>
       </main>
+      <Footer />
     </div>
   )
   }

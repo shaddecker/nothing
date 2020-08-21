@@ -98,11 +98,21 @@
     color: white;
     border: 1px solid black;
     width: 800px;
+    height: 600px;
     padding: 20px;
-
 }
 
+.button{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 14px;
+    height:25px;
+    width: auto;
+}
 
+.content{
+    padding: 20px;
+    font-size:18px;
+}
 a:hover{
 text-decoration:none;
 color: white;
@@ -118,4 +128,12 @@ a:link{
 a:active{
     text-decoration:none;
     color: white;
+}
+
+.footerContainer{
+    background-color: black;
+    color: white;
+    border: none;
+    width: 840px;
+    height: 100px;
 }
