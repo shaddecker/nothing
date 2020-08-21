@@ -3,9 +3,9 @@ import './Component.css';
 
 const Header = () => {
   return (
-    <div>
-      <nav>
-          
+    <div className="navContainer">
+      <nav className="nav">
+          <div className="navTitle">NOTHING</div>
       </nav>
     </div>
   )
