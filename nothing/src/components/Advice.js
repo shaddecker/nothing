@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import axios from 'axios'
 
-class Cats extends Component {
+class Advice extends Component {
     constructor(){
         super()
         this.state={
@@ -9,7 +9,7 @@ class Cats extends Component {
             item:"",
         }
     }
-getRandomCat = async(event) =>{
+getRandomAdvice = async(event) =>{
     event.preventDefault();
     let response = await axios.get(this.state.API, {
 
@@ -23,12 +23,12 @@ getRandomCat = async(event) =>{
 render(){
   return (
     <div>
-        <button onClick={this.getRandomCat} >GetRandomAdvice</button>
+        <button onClick={this.getRandomAdvice} >GetRandomAdvice</button>
         <div>{this.state.item}</div>
     </div>
   )
   }
 }
 
-export default Cats;
+export default Advice;
 

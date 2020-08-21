@@ -1,13 +1,29 @@
 import React, {Component} from 'react';
 import './Component.css';
+import axios from "axios";
 
-const Chuck = (props) => {
+class Chuck extends Component  {
+  constructor (){
+    super()
+    this.state = {
+      chuckAPI: {},
+    }
+  }
+
+  getChuckJoke = async () => {
+    let response = await axios.get("https://api.chucknorris.io/jokes/random");
+    this.setState({chuckAPI: response.data});
+    console.log(this.state.chuckAPI)
+  }
+
+  render(){
   return (
     <div className="container">
-      <div><img src={props.chuckJoke.icon_url} alt="" /></div>
-      <div>{props.chuckJoke.value}</div>
+      <div><img src={this.state.chuckAPI.icon_url} alt="" /></div>
+      <div>{this.state.chuckAPI.value}</div>
     </div>
   )
+  }
 }
 
 export default Chuck;
