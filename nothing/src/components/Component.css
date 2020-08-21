@@ -1,1 +1,31 @@
 
+.navContainer{
+    background-color: grey;
+    color: white;
+    border: 1px solid black;
+    width: 840px;
+}
+.nav{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 14px;
+    height:75px;
+    width: 840px;
+    background-color: black;
+    display: grid;
+}
+.navTitle{
+    font-size: 20px;
+    font-weight: bold;
+}
+.navSmall{
+    font-size: 10px;
+}
+
+.container{
+    background-color: grey;
+    color: white;
+    border: 1px solid black;
+    width: 800px;
+    padding: 20px;
+
+}
