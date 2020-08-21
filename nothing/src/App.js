@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Chuck from "./components/Chuck";
 import Advice from "./components/Advice"
 import Footer from "./components/Footer";
+import Trivia from "./components/Trivia";
 
 class App extends Component{
   constructor (){
@@ -20,6 +21,7 @@ class App extends Component{
         <Switch>
           <Route path="/advice" render={()=> <Advice />} />
           <Route path="/chuck" render={()=> <Chuck />} />
+          <Route path="/trivia" render={()=> <Trivia />} />
       </Switch>
       </main>
       <Footer />

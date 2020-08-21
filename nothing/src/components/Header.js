@@ -11,7 +11,7 @@ const Header = () => {
         <div className="nav1"></div>
         <div className="nav2"><Link to='/chuck'>Chuck</Link></div>
         <div className="nav3"><Link to='/advice'>Advice</Link></div>
-        <div className="nav4">Random4</div>
+        <div className="nav4"><Link to='/trivia'>Trivia</Link></div>
         <div className="nav5">Random5</div>
         <div className="nav6">Random6</div>
         <div className="nav7">Random7</div>
