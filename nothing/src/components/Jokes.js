@@ -21,14 +21,14 @@ class Jokes extends Component {
 
 getRandomJoke = async(event) =>{
     event.preventDefault();
-    console.log(this.state.typeCheckboxes)
+    // console.log(this.state.typeCheckboxes)
     let typeslist ="";
     Object.keys(this.state.typeCheckboxes)
       .filter(checkbox => this.state.typeCheckboxes[checkbox])
       .forEach(checkbox=> {
-        console.log(typeslist, this.state.jokeTypes)
+        // console.log(typeslist, this.state.jokeTypes)
           typeslist = typeslist + checkbox + ",";
-          console.log("typeslist:", typeslist)
+        //   console.log("typeslist:", typeslist)
       })
       typeslist=typeslist.substring(0,typeslist.length -1);
       console.log(typeslist)

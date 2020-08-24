@@ -54,6 +54,7 @@ class Trivia extends Component  {
   getTriviaQuestion = async (event) => {
     event.preventDefault();
     this.hideAnswer();
+    this.setState({timer: 10});
     let response = await axios.get("https://jservice.io/api/random");
     this.setState({triviaQuestion: response.data[0].question});
     this.setState({triviaAnswer: response.data[0].answer});
