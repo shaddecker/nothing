@@ -109,9 +109,35 @@
     width: auto;
 }
 
+.countDown{
+    padding: 10px;
+    font-size:18px;
+    font-weight: bold;
+    color: red;
+}
+
 .content{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    font-size:18px;
+}
+
+.content{
+    padding-top: 20px;
+    padding-left: 20px;
+    font-size:18px;
+}
+.contentTitle{
+    padding-top: 10px;
+    padding-left: 10px;
+    font-size:25px;
+    font-weight: bold;
+}
+.contentHidden{
     padding: 20px;
     font-size:18px;
+    display: none;
 }
 a:hover{
 text-decoration:none;
