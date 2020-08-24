@@ -53,7 +53,7 @@ getRandomJoke = async(event) =>{
     console.log(response.data)
     if (response.data.type=="twopart"){
     this.setState({
-        item:response.data.setup + "    ..." + response.data.delivery
+        item:response.data.setup + "  ..." + response.data.delivery
      })
 }
 else {

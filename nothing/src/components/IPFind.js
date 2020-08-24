@@ -10,11 +10,18 @@ class IPFind extends component {
     }
     }
 
+    getIP = async (e) => {
+        e.preventdefault
+        let ip4= await publicIp.v4
+        console.log(ip4)
+        let ip6 = await publicIp.v6
+        console.log(ip6)
+    }
 
-    
     render(){
         return(
             <div>
+                <button onclick={this.getIP}>get IP</button>
 
             </div>
         )
