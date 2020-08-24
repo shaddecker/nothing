@@ -11,34 +11,27 @@ class Jokes extends Component {
         this.state={
             API:"https://sv443.net/jokeapi/v2/joke/Programming",
             item:"",
-            isgoing: false,
+            jokeTypes: [],
             typeCheckboxes: Type.reduce((types, type) => ({...types, [type]: false}),{}),
             blacklistCheckboxes: BlackList.reduce((filters, filter) => ({...filters, [filter]: false}),{}),
         }
     }
 
-    handleInputChange=(event)=> {
-        const {name} = event.target;
-    console.log(name)
-    console.log(this.state.isgoing)
 
-
-    this.setState(prevState => (
-    
-        {
-        
-       isgoing: !prevState.name
-    }))
-    }
 
 getRandomJoke = async(event) =>{
     event.preventDefault();
-    // Object.keys(this.state.typeCheckboxes).filter(checkbox => {
-    //         this.state.typeCheckboxes[checkbox]
-    //     }).forEach(checkbox => {
-    //         console.log(checkbox)
-    //     })
-    console.log(this.state.typeCheckboxes,this.state.blacklistCheckboxes)
+    console.log(this.state.typeCheckboxes)
+    Object.keys(this.state.typeCheckboxes)
+      .filter(checkbox => this.state.typeCheckboxes[checkbox])
+      .forEach(checkbox=> {
+        //   console.log(typeslist, this.state.jokeTypes)
+          let typeslist = this.state.jokeTypes.concat(checkbox);
+          console.log(typeslist, this.state.jokeTypes)
+          this.setState({jokeTypes: typeslist})
+          console.log(typeslist, this.state.jokeTypes)
+      })
+    //   console.log(typeslist)
     let response = await axios.get(this.state.API, {
 
     })
@@ -66,8 +59,8 @@ handleFilterCheckboxChange = (event) => {
 
     this.setState(prevState => ({
         blacklistCheckboxes: {
-            ...prevState.filterCheckboxes,
-            [name]: !prevState.filterCheckboxes[name]
+            ...prevState.blacklistCheckboxes,
+            [name]: !prevState.blacklistCheckboxes[name]
         }
     }))
 }
@@ -97,14 +90,9 @@ createFilterCheckboxes = () => BlackList.map(this.createFilterCheckbox)
 render(){
   return (
     <div className="container">
-        <h3>Test button</h3>
-        <form>
-            <label>test check box<input name="isgoing" type="checkbox" 
-              checked={this.state.isgoing} onChange={this.handleInputChange} /></label>
-        </form>
-        <h3>Types of Jokes </h3>
+        <h3>Types of Jokes</h3>
         {this.createTypeCheckboxes()}
-        <h3>Joke Filters</h3> 
+        <h3>Joke Filters - check any you would like to filter out</h3> 
         {this.createFilterCheckboxes()}
         <br />
         <form onSubmit={this.getRandomJoke}>
