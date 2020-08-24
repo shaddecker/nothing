@@ -9,9 +9,9 @@ class Jokes extends Component {
     constructor(){
         super()
         this.state={
-            API:"https://sv443.net/jokeapi/v2/joke/Programming",
+            API:"https://sv443.net/jokeapi/v2/joke/",
             item:"",
-            jokeTypes: [],
+            jokeTypes: "",
             typeCheckboxes: Type.reduce((types, type) => ({...types, [type]: false}),{}),
             blacklistCheckboxes: BlackList.reduce((filters, filter) => ({...filters, [filter]: false}),{}),
         }
@@ -22,17 +22,32 @@ class Jokes extends Component {
 getRandomJoke = async(event) =>{
     event.preventDefault();
     console.log(this.state.typeCheckboxes)
+    let typeslist ="";
     Object.keys(this.state.typeCheckboxes)
       .filter(checkbox => this.state.typeCheckboxes[checkbox])
       .forEach(checkbox=> {
-        //   console.log(typeslist, this.state.jokeTypes)
-          let typeslist = this.state.jokeTypes.concat(checkbox);
-          console.log(typeslist, this.state.jokeTypes)
-          this.setState({jokeTypes: typeslist})
-          console.log(typeslist, this.state.jokeTypes)
+        console.log(typeslist, this.state.jokeTypes)
+          typeslist = typeslist + checkbox + ",";
+          console.log("typeslist:", typeslist)
       })
-    //   console.log(typeslist)
-    let response = await axios.get(this.state.API, {
+      typeslist=typeslist.substring(0,typeslist.length -1);
+      console.log(typeslist)
+
+      let filter ="";
+    Object.keys(this.state.blacklistCheckboxes)
+      .filter(checkbox => this.state.blacklistCheckboxes[checkbox])
+      .forEach(checkbox=> {
+        console.log(filter)
+          filter = filter + checkbox + ",";
+          console.log("filter:", filter)
+      })
+      filter=filter.substring(0,filter.length -1);
+      console.log(filter)
+      if (filter === "") {}
+      else { filter = "?blacklistFlags=" + filter }
+      console.log(this.state.API +  typeslist +  filter)
+
+    let response = await axios.get((this.state.API + typeslist), {
 
     })
     console.log(response.data.joke)
@@ -90,7 +105,7 @@ createFilterCheckboxes = () => BlackList.map(this.createFilterCheckbox)
 render(){
   return (
     <div className="container">
-        <h3>Types of Jokes</h3>
+        <h3>Types of Jokes - choose 1 or many</h3>
         {this.createTypeCheckboxes()}
         <h3>Joke Filters - check any you would like to filter out</h3> 
         {this.createFilterCheckboxes()}
