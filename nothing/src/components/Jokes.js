@@ -18,17 +18,26 @@ class Jokes extends Component {
     }
 
     handleInputChange=(event)=> {
-        const {name} = event.target;
-    console.log(name)
-    console.log(this.state.isgoing)
+    //     const {name} = event.target;
+    // console.log(name)
+    // console.log(this.state.isgoing)
 
 
-    this.setState(prevState => (
+    // this.setState(prevState => (
     
-        {
+    //     {
         
-       isgoing: !prevState.name
-    }))
+    //    isgoing: !prevState.name
+    // }))
+
+    switch (event.target.name){
+        case "isgoing": 
+            console.log("do stuff");
+            break;
+        default:
+            console.log("do other stuff");
+            
+    }
     }
 
 getRandomJoke = async(event) =>{
@@ -85,7 +94,8 @@ createTypeCheckbox = type => (
     <Checkbox
         label={type}
         isSelected={this.state.typeCheckboxes[type]}
-        onChange={this.handleTypeCheckboxChange}
+        // onChange={this.handleTypeCheckboxChange}
+        onChange={this.handleInputChange}
         key={type}
     />
 )

@@ -114,6 +114,8 @@
     font-size:18px;
     font-weight: bold;
     color: red;
+    display: none;
+    background-color: white;
 }
 
 .content{
@@ -123,11 +125,6 @@
     font-size:18px;
 }
 
-.content{
-    padding-top: 20px;
-    padding-left: 20px;
-    font-size:18px;
-}
 .contentTitle{
     padding-top: 10px;
     padding-left: 10px;
