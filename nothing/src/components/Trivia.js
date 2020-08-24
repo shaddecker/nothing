@@ -14,10 +14,8 @@ class Trivia extends Component  {
       buzzer: {},
     }
 
-    let counter = 0;
+    let interval;
   }
-
-  
 
   showAnswer = () => {
     let elementAnswer = document.querySelector(".contentHidden");
@@ -36,7 +34,6 @@ class Trivia extends Component  {
   }
 
   updateCounter = async () => {
-    // console.log(this.state.timer)
     let tmpTimer;
     switch(true){
       case this.state.timer > 0:
@@ -46,11 +43,11 @@ class Trivia extends Component  {
         break;
       case this.state.timer < 0:
         this.state.buzzer.pause();
-        clearInterval(this.counter);
+        clearInterval(this.interval);
         break;
+      default:        
     }
     tmpTimer = this.state.timer - 1;
-    // console.log(this.state.timer)
     this.setState({timer: tmpTimer});
   }
 
@@ -61,8 +58,7 @@ class Trivia extends Component  {
     this.setState({triviaQuestion: response.data[0].question});
     this.setState({triviaAnswer: response.data[0].answer});
     this.setState({triviaCategory: response.data[0].category.title});
-    console.log(this.state.timer)
-    this.counter = setInterval(this.updateCounter,1000);
+    this.interval = setInterval(this.updateCounter,1000);
     this.setState({themeSong: document.getElementById("theme")});
     this.setState({buzzer: document.getElementById("buzzer")});
     this.state.themeSong.play()

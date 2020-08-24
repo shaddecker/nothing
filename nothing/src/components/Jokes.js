@@ -78,8 +78,7 @@ createTypeCheckbox = type => (
     <Checkbox
         label={type}
         isSelected={this.state.typeCheckboxes[type]}
-        // onChange={this.handleTypeCheckboxChange}
-        onChange={this.handleInputChange}
+        onChange={this.handleTypeCheckboxChange}
         key={type}
     />
 )
@@ -97,7 +96,7 @@ render(){
         {this.createFilterCheckboxes()}
         <br />
         <form onSubmit={this.getRandomJoke}>
-        <button className="button" >GetRandomJoke</button>
+        <button className="button" >Get Random Joke</button>
 
         <div className="content">{this.state.item}</div>
         </form>
