@@ -50,10 +50,17 @@ getRandomJoke = async(event) =>{
     let response = await axios.get((this.state.API + typeslist), {
 
     })
-    console.log(response.data.joke)
+    console.log(response.data)
+    if (response.data.type=="twopart"){
+    this.setState({
+        item:response.data.setup + "    ..." + response.data.delivery
+     })
+}
+else {
     this.setState({
         item:response.data.joke
     })
+}
 }
 
 handleTypeCheckboxChange = (event) => {
