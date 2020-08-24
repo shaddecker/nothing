@@ -11,13 +11,34 @@ class Jokes extends Component {
         this.state={
             API:"https://sv443.net/jokeapi/v2/joke/Programming",
             item:"",
+            isgoing: false,
             typeCheckboxes: Type.reduce((types, type) => ({...types, [type]: false}),{}),
             blacklistCheckboxes: BlackList.reduce((filters, filter) => ({...filters, [filter]: false}),{}),
         }
     }
+
+    handleInputChange=(event)=> {
+        const {name} = event.target;
+    console.log(name)
+    console.log(this.state.isgoing)
+
+
+    this.setState(prevState => (
     
+        {
+        
+       isgoing: !prevState.name
+    }))
+    }
+
 getRandomJoke = async(event) =>{
     event.preventDefault();
+    // Object.keys(this.state.typeCheckboxes).filter(checkbox => {
+    //         this.state.typeCheckboxes[checkbox]
+    //     }).forEach(checkbox => {
+    //         console.log(checkbox)
+    //     })
+    console.log(this.state.typeCheckboxes,this.state.blacklistCheckboxes)
     let response = await axios.get(this.state.API, {
 
     })
@@ -29,6 +50,7 @@ getRandomJoke = async(event) =>{
 
 handleTypeCheckboxChange = (event) => {
     const {name} = event.target;
+    console.log(name)
 
     this.setState(prevState => ({
         typeCheckboxes: {
@@ -40,6 +62,7 @@ handleTypeCheckboxChange = (event) => {
 
 handleFilterCheckboxChange = (event) => {
     const {name} = event.target;
+    console.log(name)
 
     this.setState(prevState => ({
         blacklistCheckboxes: {
@@ -53,7 +76,7 @@ createFilterCheckbox = filter => (
     <Checkbox
         label={filter}
         isSelected={this.state.blacklistCheckboxes[filter]}
-        onCheckboxChange={this.handleFilterCheckboxChange}
+        onChange={this.handleFilterCheckboxChange}
         key={filter}
     />
 )
@@ -62,7 +85,7 @@ createTypeCheckbox = type => (
     <Checkbox
         label={type}
         isSelected={this.state.typeCheckboxes[type]}
-        onCheckboxChange={this.handleTypeCheckboxChange}
+        onChange={this.handleTypeCheckboxChange}
         key={type}
     />
 )
@@ -74,6 +97,11 @@ createFilterCheckboxes = () => BlackList.map(this.createFilterCheckbox)
 render(){
   return (
     <div className="container">
+        <h3>Test button</h3>
+        <form>
+            <label>test check box<input name="isgoing" type="checkbox" 
+              checked={this.state.isgoing} onChange={this.handleInputChange} /></label>
+        </form>
         <h3>Types of Jokes </h3>
         {this.createTypeCheckboxes()}
         <h3>Joke Filters</h3> 
