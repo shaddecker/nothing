@@ -21,39 +21,35 @@ class Jokes extends Component {
 
 getRandomJoke = async(event) =>{
     event.preventDefault();
-    console.log(this.state.typeCheckboxes)
+    // console.log(this.state.typeCheckboxes)
     let typeslist ="";
     Object.keys(this.state.typeCheckboxes)
       .filter(checkbox => this.state.typeCheckboxes[checkbox])
       .forEach(checkbox=> {
-        console.log(typeslist, this.state.jokeTypes)
+        // console.log(typeslist, this.state.jokeTypes)
           typeslist = typeslist + checkbox + ",";
-          console.log("typeslist:", typeslist)
+        //   console.log("typeslist:", typeslist)
       })
       typeslist=typeslist.substring(0,typeslist.length -1);
       console.log(typeslist)
 
-      let filter ="";
-    Object.keys(this.state.blacklistCheckboxes)
-      .filter(checkbox => this.state.blacklistCheckboxes[checkbox])
-      .forEach(checkbox=> {
-        console.log(filter)
-          filter = filter + checkbox + ",";
-          console.log("filter:", filter)
-      })
-      filter=filter.substring(0,filter.length -1);
-      console.log(filter)
-      if (filter === "") {}
-      else { filter = "?blacklistFlags=" + filter }
-      console.log(this.state.API +  typeslist +  filter)
+    //   let filter ="";
+    // Object.keys(this.state.blacklistCheckboxes)
+    //   .filter(checkbox => this.state.blacklistCheckboxes[checkbox])
+    //   .forEach(checkbox=> {
+    //     console.log(filter)
+    //       filter = filter + checkbox + ",";
+    //       console.log("filter:", filter)
+    //   })
+    //   filter=filter.substring(0,filter.length -1);
+    //   console.log(filter)
+    //   if (filter === "") {}
+    //   else { filter = "?blacklistFlags=" + filter }
+    //   console.log(this.state.API +  typeslist +  filter)
 
-    let response = await axios.get((this.state.API + typeslist), {
-
-    })
-    console.log(response.data.joke)
-    this.setState({
-        item:response.data.joke
-    })
+    // let response = await axios.get((this.state.API + typeslist), {})
+    let response = await axios.get(this.state.API + typeslist);
+    this.setState({ item:response.data })
 }
 
 handleTypeCheckboxChange = (event) => {
