@@ -33,23 +33,34 @@ getRandomJoke = async(event) =>{
       typeslist=typeslist.substring(0,typeslist.length -1);
       console.log(typeslist)
 
-    //   let filter ="";
-    // Object.keys(this.state.blacklistCheckboxes)
-    //   .filter(checkbox => this.state.blacklistCheckboxes[checkbox])
-    //   .forEach(checkbox=> {
-    //     console.log(filter)
-    //       filter = filter + checkbox + ",";
-    //       console.log("filter:", filter)
-    //   })
-    //   filter=filter.substring(0,filter.length -1);
-    //   console.log(filter)
-    //   if (filter === "") {}
-    //   else { filter = "?blacklistFlags=" + filter }
-    //   console.log(this.state.API +  typeslist +  filter)
+      let filter ="";
+    Object.keys(this.state.blacklistCheckboxes)
+      .filter(checkbox => this.state.blacklistCheckboxes[checkbox])
+      .forEach(checkbox=> {
+        console.log(filter)
+          filter = filter + checkbox + ",";
+          console.log("filter:", filter)
+      })
+      filter=filter.substring(0,filter.length -1);
+      console.log(filter)
+      if (filter === "") {}
+      else { filter = "?blacklistFlags=" + filter }
+      console.log(this.state.API +  typeslist +  filter)
 
-    // let response = await axios.get((this.state.API + typeslist), {})
-    let response = await axios.get(this.state.API + typeslist);
-    this.setState({ item:response.data })
+    let response = await axios.get((this.state.API + typeslist), {
+
+    })
+    console.log(response.data)
+    if (response.data.type=="twopart"){
+    this.setState({
+        item:response.data.setup + "    ..." + response.data.delivery
+     })
+}
+else {
+    this.setState({
+        item:response.data.joke
+    })
+}
 }
 
 handleTypeCheckboxChange = (event) => {
