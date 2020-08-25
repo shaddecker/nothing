@@ -13,7 +13,7 @@
     background-color: black;
     display: grid;
     grid-template-rows: 23px 23px 23px;
-    grid-template-columns: 150px 35% 100px 100px 100px;
+    grid-template-columns: 150px 30% 140px 140px 140px;
     padding: 10px;
 
 }
@@ -107,6 +107,14 @@
     font-size: 14px;
     height:25px;
     width: auto;
+}
+
+.select{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 14px;
+    height:25px;
+    width: 100px;
+    margin-bottom: 10px;
 }
 
 .countDown{

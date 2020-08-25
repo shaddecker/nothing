@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 import Trivia from "./components/Trivia";
 import Home from "./components/Home";
 import IPFind from "./components/IPFind";
+import CatDogFacts from "./components/CatDogFacts";
 
 class App extends Component{
   constructor (){
@@ -27,7 +28,10 @@ class App extends Component{
           <Route path="/trivia" render={()=> <Trivia />} />
           <Route path="/jokes" render={()=> <Jokes />} />
           <Route path="/ipfind" render={()=> <IPFind />} />
+          <Route path="/CatDogFacts" render={()=> <CatDogFacts />} />
+          
           <Route path="/" render={()=> <Home />} />
+          
       </Switch>
       </main>
       <Footer />
