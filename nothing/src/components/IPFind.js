@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import axios from 'axios';
-import MapComponent from './MapComponent'
+import MapPopup from './MapPopup'
 
 const publicIp = require('public-ip'); 
 // npm install public-ip
@@ -16,6 +16,7 @@ class IPFind extends Component {
         flag : "",
         latitude: "",
         longitude: "",
+        mapShown: false,
     }
     }
 
@@ -40,41 +41,61 @@ class IPFind extends Component {
         flag: response.data.location.country_flag_emoji,
         latitude: response.data.latitude,
         longitude: response.data.longitude,
+        APIbase:`https://dev.virtualearth.net/REST/v1/Imagery/Map/Road/${this.state.latitude},${this.state.longitude}/14?mapSize=500,500&pushpin=${this.state.latitude},${this.state.longitude}&key=AtmZJw-7hg6FmS-GuGXJKoKQMMXFqiyrhTurRLJfOHDIlNxcB3vDnAP4pwLToq-d`,
+        // example: http://dev.virtualearth.net/REST/v1/Imagery/Map/Road/47.619048,-122.35384/15?mapSize=500,500&pp=47.620495,-122.34931;21;AA&pp=47.619385,-122.351485;;AB&pp=47.616295,-122.3556;22&mapMetadata=1&o=xml&key={BingMapsAPIKey}
+        APIkey:"AtmZJw-7hg6FmS-GuGXJKoKQMMXFqiyrhTurRLJfOHDIlNxcB3vDnAP4pwLToq-d",
+        Map: null,
+        mapShown: false,
+    })
+}
+getMap = async(event) =>{
+    event.preventDefault();
+    console.log(this.api_url)
+    let response = await axios.get((`https://dev.virtualearth.net/REST/v1/Imagery/Map/Road/${this.props.latitude},${this.props.longitude}/14?mapSize=500,500&pushpin=${this.props.latitude},${this.props.longitude}&key=AtmZJw-7hg6FmS-GuGXJKoKQMMXFqiyrhTurRLJfOHDIlNxcB3vDnAP4pwLToq-d`), {
+        responseType: 'arraybuffer'
+    }).then((data) =>{
+        const b64Data = btoa(
+            new Uint8Array(data.data).reduce(
+                (dataArray, byte) => {
+                    return dataArray + String.fromCharCode(byte);
+                }, ''
+            )
+        );
+        const mapData = { key: "map", value: `data:image/jpg;base64,${b64Data}`}
+        this.setState({ map: mapData.value })
+        this.showMap();
     })
 }
 
+    showMap = () => {
+        this.setState({mapShown: !this.state.mapShown})
+    }
+
     render(){
         return(
-            <div>
-                <h1>Find your IP address and physical address</h1>
-                <h3>Step 1:</h3>
-                <form onSubmit={this.getIP}>
+        <div className="container">
+            <div className="contentTitle">Find your IP address and physical address</div>
+            <div className="contentTitle">Step 1:</div>
+            <form onSubmit={this.getIP}>
+                <button className="button" >Get IP address</button>
+                <div className="contentSmall">{this.state.ip4}</div>
+            </form>
+            <div className="contentTitle">Step 2:</div>
 
-        <button className="button" >Get IP address</button>
-        <div>{this.state.ip4}</div>
+            <form onSubmit={this.getInfo}>
+            <button className="button" >Find IP info </button><br />
+            <div className="contentSmall">City: {this.state.ipInfo.city}</div> 
+            <div className="contentSmall">State: {this.state.ipInfo.region_name}</div> 
+            <div className="contentSmall">Zip: {this.state.ipInfo.zip}</div> 
+            <div className="contentSmall">Country: {this.state.ipInfo.country_name}</div>
+            <span role="img" aria-label="flag">{this.state.flag}</span>
+            </form>
+            <div className="contentTitle">Step 3:</div>
+            <button className="button" onClick={this.showMap}>Show Map </button><br />
+            {this.state.mapShown ? <MapPopup mapVisible = {this.showMap} map = {this.state.map} /> :null}
             
-        </form>
-
-        <h3>Step 2:</h3>
-
-        <form onSubmit={this.getInfo}>
-        <button className="button" >Find IP info </button>
-            <br />
             
-        <div>City: {this.state.ipInfo.city}</div> 
-        <div>State: {this.state.ipInfo.region_name}</div> 
-        <div>Zip: {this.state.ipInfo.zip}</div> 
-        <div>Country: {this.state.ipInfo.country_name}</div>
-        
-        <span role="img" aria-label="flag">{this.state.flag}</span>
-        
-        </form>
-
-        <h3>Step 3:</h3>
-
-        <MapComponent latitude={this.state.latitude} longitude={this.state.longitude}  />
-
-            </div>
+          </div>
         )
     }
 }

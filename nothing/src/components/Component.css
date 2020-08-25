@@ -139,10 +139,10 @@ body{
     font-size:18px;
     margin-right: 10%;
 }
-.calendarContent{
-    padding-top: 10px;
+.contentSmall{
+    padding-top: 5px;
     padding-left: 20px;
-    font-size:16px;
+    font-size:14px;
 }
 .contentTitle{
     padding-top: 10px;
@@ -154,6 +154,17 @@ body{
     padding: 20px;
     font-size:18px;
     display: none;
+}
+
+.modalWindow{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.25);
+}
+.modalContent{
+    background-color: white;
+    position: absolute;
 }
 a:hover{
 text-decoration:none;
@@ -180,7 +191,7 @@ a:active{
     padding-left: 25px;
     padding-top: 15px;
     padding-right: 25px;
-    position: absolute;
+    position: fixed; 
     bottom: 0;
     display: grid;
     grid-template-rows: 100px;
