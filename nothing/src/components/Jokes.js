@@ -112,9 +112,9 @@ createFilterCheckboxes = () => BlackList.map(this.createFilterCheckbox)
 render(){
   return (
     <div className="container">
-        <h3>Types of Jokes - choose 1 or many</h3>
+        <div className="contentTitle">Types of Jokes - choose 1 or many</div>
         {this.createTypeCheckboxes()}
-        <h3>Joke Filters - check any you would like to filter out</h3> 
+        <div className="contentTitle">Joke Filters - check any you would like to filter out</div> 
         {this.createFilterCheckboxes()}
         <br />
         <form onSubmit={this.getRandomJoke}>
