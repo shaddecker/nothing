@@ -15,7 +15,7 @@ const Header = () => {
         <div className="nav5"><Link to='/jokes'>Jokes</Link></div>
         <div className="nav6"><Link to='/catdogfacts'>Cat|Dog Facts</Link></div>
         <div className="nav7">Random7</div>
-        <div className="nav8">Random8</div>
+        <div className="nav8"><Link to='/calendar'>Calendar</Link></div>
         <div className="nav9">Random9</div>
         <div className="nav10">Random10</div>
       </nav>

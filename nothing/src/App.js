@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 import Trivia from "./components/Trivia";
 import Home from "./components/Home";
 import CatDogFacts from "./components/CatDogFacts";
+import Calendar from "./components/Calendar";
 
 class App extends Component{
   constructor (){
@@ -27,7 +28,7 @@ class App extends Component{
           <Route path="/trivia" render={()=> <Trivia />} />
           <Route path="/jokes" render={()=> <Jokes />} />
           <Route path="/CatDogFacts" render={()=> <CatDogFacts />} />
-          
+          <Route path="/calendar" render={()=> <Calendar />} />
           <Route path="/" render={()=> <Home />} />
           
       </Switch>

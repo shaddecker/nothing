@@ -33,7 +33,7 @@ class CatDogFact extends Component  {
                 <option value="dog">Dog</option>    
             </select>  
         </div> 
-        <div><button className="button">Next Random Fact</button></div>
+        <div><button className="button">Get a Random Fact</button></div>
       </form>
       <div className="content">{this.state.factAPI.text}</div>
     </div>
