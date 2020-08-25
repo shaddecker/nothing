@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
 import axios from 'axios';
+import MapComponent from './MapComponent'
+
 const publicIp = require('public-ip');
 
 class IPFind extends Component {
@@ -9,7 +11,8 @@ class IPFind extends Component {
         api_key: "?access_key=b5b55334d91c20c222ff51ed1e8f0732",
         api_base_url: "http://api.ipstack.com/",
         ip4:"",
-        ipInfo:[]
+        ipInfo:[],
+        flag : "",
     }
     }
 
@@ -28,9 +31,10 @@ class IPFind extends Component {
         let response = await axios.get((this.state.api_base_url + this.state.ip4 + this.state.api_key), {
 
     })
-    console.log(response.data);
+    console.log(response.data.location.country_flag_emoji);
     this.setState({
         ipInfo: response.data,
+        flag: response.data.location.country_flag_emoji,
     })
 }
 
@@ -49,11 +53,26 @@ class IPFind extends Component {
         <h3>Step 2:</h3>
 
         <form onSubmit={this.getInfo}>
-
         <button className="button" >Find IP info </button>
-        <textarea value={this.state.ipInfo} disabled/>
-            
+            <br />
+            City
+        <textarea value={this.state.ipInfo.city} disabled/>
+        State
+        <textarea value={this.state.ipInfo.region_name} disabled/>
+        Zip
+        <textarea value={this.state.ipInfo.zip} disabled/>
+        Country
+        <textarea value={this.state.ipInfo.country_name} disabled/>
+        
+        <span role="img" aria-label="flag">{this.state.flag}</span>
+        
         </form>
+        <MapComponent
+    googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4R6AN7SmujjPUIGKdyao2Kqitzr1kiRg&v=3.exp&libraries=geometry,drawing,places"
+    loadingElement={<div style={{ height: `100%` }} />}
+    containerElement={<div style={{ height: `400px` }} />}
+    mapElement={<div style={{ height: `100%` }} />}
+    />
 
             </div>
         )
