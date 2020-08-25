@@ -1,5 +1,5 @@
-# nothing
-the app about nothing 
+# NOTHING
+the app about nothing - inspired by Seinfeld, the show about nothing
 
 ## Description
 A collection of different API's for you enjoyment, amusement and/or eduction.
@@ -16,7 +16,9 @@ A collection of different API's for you enjoyment, amusement and/or eduction.
 * [JokeAPI](https://sv443.net/jokeapi/v2/) - random jokes with filters and categories to choose from
 * [jService](http://jservice.io/) - trivia questions
 
-## List of React Components Used
+## Technical Stuff
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+React components used:
 * axios
 * public-ip
 * react-router-dom

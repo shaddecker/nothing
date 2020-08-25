@@ -1,0 +1,14 @@
+Index
+    App
+        Header
+            Chuck
+            Advice
+            CatDogFacts
+            IPFind
+                MapComponent
+            Jokes
+                Checkbox
+        Footer
+
+
+
