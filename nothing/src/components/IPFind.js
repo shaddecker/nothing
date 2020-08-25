@@ -2,7 +2,8 @@ import React, {Component} from 'react'
 import axios from 'axios';
 import MapComponent from './MapComponent'
 
-const publicIp = require('public-ip');
+const publicIp = require('public-ip'); 
+// npm install public-ip
 
 class IPFind extends Component {
     constructor(){
@@ -13,6 +14,8 @@ class IPFind extends Component {
         ip4:"",
         ipInfo:[],
         flag : "",
+        latitude: "",
+        longitude: "",
     }
     }
 
@@ -27,14 +30,16 @@ class IPFind extends Component {
 
     getInfo = async (e) =>{
         e.preventDefault();
-        console.log(this.state.api_base_url + this.state.ip4 + this.state.api_key)
+        // console.log(this.state.api_base_url + this.state.ip4 + this.state.api_key)
         let response = await axios.get((this.state.api_base_url + this.state.ip4 + this.state.api_key), {
 
     })
-    console.log(response.data.location.country_flag_emoji);
+    // console.log(response.data.location.country_flag_emoji);
     this.setState({
         ipInfo: response.data,
         flag: response.data.location.country_flag_emoji,
+        latitude: response.data.latitude,
+        longitude: response.data.longitude,
     })
 }
 
@@ -46,7 +51,7 @@ class IPFind extends Component {
                 <form onSubmit={this.getIP}>
 
         <button className="button" >Get IP address</button>
-        <textarea value={this.state.ip4} disabled/>
+        <div>{this.state.ip4}</div>
             
         </form>
 
@@ -55,24 +60,19 @@ class IPFind extends Component {
         <form onSubmit={this.getInfo}>
         <button className="button" >Find IP info </button>
             <br />
-            City
-        <textarea value={this.state.ipInfo.city} disabled/>
-        State
-        <textarea value={this.state.ipInfo.region_name} disabled/>
-        Zip
-        <textarea value={this.state.ipInfo.zip} disabled/>
-        Country
-        <textarea value={this.state.ipInfo.country_name} disabled/>
+            
+        <div>City: {this.state.ipInfo.city}</div> 
+        <div>State: {this.state.ipInfo.region_name}</div> 
+        <div>Zip: {this.state.ipInfo.zip}</div> 
+        <div>Country: {this.state.ipInfo.country_name}</div>
         
         <span role="img" aria-label="flag">{this.state.flag}</span>
         
         </form>
-        <MapComponent
-    googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4R6AN7SmujjPUIGKdyao2Kqitzr1kiRg&v=3.exp&libraries=geometry,drawing,places"
-    loadingElement={<div style={{ height: `100%` }} />}
-    containerElement={<div style={{ height: `400px` }} />}
-    mapElement={<div style={{ height: `100%` }} />}
-    />
+
+        <h3>Step 3:</h3>
+
+        <MapComponent latitude={this.state.latitude} longitude={this.state.longitude}  />
 
             </div>
         )
