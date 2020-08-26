@@ -1,33 +1,28 @@
-import React, {Component} from 'react'
+import React, {useState} from 'react'
 import axios from 'axios'
 
-class Advice extends Component {
-    constructor(){
-        super()
-        this.state={
-            API:"https://api.adviceslip.com/advice",
-            item:"",
-        }
-    }
-getRandomAdvice = async(event) =>{
+function Advice () {
+    const [API, setAPI] = useState("https://api.adviceslip.com/advice")
+    const [item, setItem] = useState("")
+
+        
+const getRandomAdvice = async(event) =>{
     event.preventDefault();
-    let response = await axios.get(this.state.API, {
+    let response = await axios.get(API, {
 
     })
     console.log(response)
-    this.setState({
-        item:response.data.slip.advice
-    })
+    setItem(response.data.slip.advice)
 }
 
-render(){
+
   return (
     <div className="container">
-        <button className="button" onClick={this.getRandomAdvice} >Get Random Advice</button>
-        <div className="content">{this.state.item}</div>
+        <button className="button" onClick={getRandomAdvice} >Get Random Advice</button>
+        <div className="content">{item}</div>
     </div>
   )
-  }
+  
 }
 
 export default Advice;
