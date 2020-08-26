@@ -1,21 +1,17 @@
 import React, {useState} from 'react';
 import './Component.css';
 import styled, {keyframes} from 'styled-components';
-import {bounce,fadeIn,zoomIn} from 'react-animations';
+import {fadeIn,zoomIn} from 'react-animations';
 
 
 function Home (){
-  const Bounce = styled.div`animation: 2s ${keyframes`${bounce}`} infinite`;
   const FadeIn1 = styled.div`animation: 10s ${keyframes`${fadeIn}`}` ;  
   const FadeIn2 = styled.div`animation: 20s ${keyframes`${fadeIn}`}` ;
   const FadeIn3 = styled.div`animation: 30s ${keyframes`${fadeIn}`}` ;
   const ZoomIn = styled.div`animation: 50s ${keyframes`${zoomIn}`}` ;
 
   return (
-    <div className="container">
-      <Bounce><div className="contentTitle">      
-        NOTHING
-      </div></Bounce>
+    <div className="container">      
       <div className="content">
         <FadeIn1>This is the web site about nothing in particular.</FadeIn1>
         <FadeIn2>We have just accumulated a bunch of jokes, trivia and other random stuff for your entertainment.</FadeIn2>

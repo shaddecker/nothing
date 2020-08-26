@@ -1,13 +1,16 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
 import './Component.css';
+import styled, {keyframes} from 'styled-components';
+import {bounce} from 'react-animations';
 
 const Header = () => {
+  const Bounce = styled.div`animation: 2s ${keyframes`${bounce}`} infinite`;
   return (
     <div className="navContainer">
       <nav className="nav">
         <div className="navSmall">The website about</div>
-        <div className="navTitle"><Link to='/'>NOTHING</Link></div>
+        <div className="navTitle"><Link to='/'><Bounce>NOTHING</Bounce></Link></div>
         <div className="nav1"></div>
         <div className="nav2"><Link to='/chuck'>Chuck</Link></div>
         <div className="nav3"><Link to='/advice'>Advice</Link></div>
