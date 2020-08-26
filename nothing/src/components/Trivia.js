@@ -14,7 +14,7 @@ class Trivia extends Component  {
       buzzer: {},
     }
 
-    let interval;
+    
   }
 
   showAnswer = () => {

@@ -1,116 +1,116 @@
-import React, {useState, useEffect, useRef} from 'react'
-import axios from 'axios'
-import Checkbox from "./Checkbox"
+// import React, {useState, useEffect, useRef} from 'react'
+// import axios from 'axios'
+// import Checkbox from "./Checkbox"
 
-const Type=["Programming","Miscellaneous","Dark","Pun"];
-const BlackList=["nsfw","religious","political","racist","sexist"];
+// const Type=["Programming","Miscellaneous","Dark","Pun"];
+// const BlackList=["nsfw","religious","political","racist","sexist"];
 
-function usePrevious(value) {
-    const ref = useRef();
-    useEffect(() => {
-      ref.current = value;
-    });
-    return ref.current;
-  }
+// function usePrevious(value) {
+//     const ref = useRef();
+//     useEffect(() => {
+//       ref.current = value;
+//     });
+//     return ref.current;
+//   }
 
-function Jokes () {
-    const [API, setAPI] = useState("https://sv443.net/jokeapi/v2/joke/")
-    const [item, setItem] = useState('')
-    const [joketypes, setJoketypes] = useState('')
-    const [typeCheckboxes, settypeCheckboxes] = useState(Type.reduce((types, type) => ({...types, [type]: false}),{}))
-    const [blacklistCheckboxes, setblacklistCheckboxes] = useState(BlackList.reduce((filters, filter) => ({...filters, [filter]: false}),{}))
-    const prevtypeCheckboxes = usePrevious(typeCheckboxes)
-    const prevblacklistCheckboxes = usePrevious(blacklistCheckboxes)
+ function Jokes () {
+//     const [API, setAPI] = useState("https://sv443.net/jokeapi/v2/joke/")
+//     const [item, setItem] = useState('')
+//     const [joketypes, setJoketypes] = useState('')
+//     const [typeCheckboxes, settypeCheckboxes] = useState(Type.reduce((types, type) => ({...types, [type]: false}),{}))
+//     const [blacklistCheckboxes, setblacklistCheckboxes] = useState(BlackList.reduce((filters, filter) => ({...filters, [filter]: false}),{}))
+//     const prevtypeCheckboxes = usePrevious(typeCheckboxes)
+//     const prevblacklistCheckboxes = usePrevious(blacklistCheckboxes)
     
 
 
-const getRandomJoke = async(event) =>{
-    event.preventDefault();
-    let typeslist ="";
-    Object.keys(typeCheckboxes)
-      .filter(checkbox => typeCheckboxes[checkbox])
-      .forEach(checkbox=> {
-          typeslist = typeslist + checkbox + ",";
-      })
-      typeslist=typeslist.substring(0,typeslist.length -1);
+// const getRandomJoke = async(event) =>{
+//     event.preventDefault();
+//     let typeslist ="";
+//     Object.keys(typeCheckboxes)
+//       .filter(checkbox => typeCheckboxes[checkbox])
+//       .forEach(checkbox=> {
+//           typeslist = typeslist + checkbox + ",";
+//       })
+//       typeslist=typeslist.substring(0,typeslist.length -1);
 
-      let filter ="";
-    Object.keys(blacklistCheckboxes)
-      .filter(checkbox => blacklistCheckboxes[checkbox])
-      .forEach(checkbox=> {
-          filter = filter + checkbox + ",";
-      })
-      filter=filter.substring(0,filter.length -1);
-      if (filter === "") {}
-      else { filter = "?blacklistFlags=" + filter }
+//       let filter ="";
+//     Object.keys(blacklistCheckboxes)
+//       .filter(checkbox => blacklistCheckboxes[checkbox])
+//       .forEach(checkbox=> {
+//           filter = filter + checkbox + ",";
+//       })
+//       filter=filter.substring(0,filter.length -1);
+//       if (filter === "") {}
+//       else { filter = "?blacklistFlags=" + filter }
 
-    let response = await axios.get((API + typeslist), {
+//     let response = await axios.get((API + typeslist), {
 
-    })
-    if (response.data.type==="twopart"){
-        setItem(response.data.setup + "  ..." + response.data.delivery)
-    }
-    else {
-        setItem(response.data.joke)
-    }
-}
+//     })
+//     if (response.data.type==="twopart"){
+//         setItem(response.data.setup + "  ..." + response.data.delivery)
+//     }
+//     else {
+//         setItem(response.data.joke)
+//     }
+// }
 
-const handleTypeCheckboxChange = (event) => {
-    const {name} = event.target;
+// const handleTypeCheckboxChange = (event) => {
+//     const {name} = event.target;
 
-    settypeCheckboxes(!prevtypeCheckboxes[name])
+//     settypeCheckboxes(!prevtypeCheckboxes[name])
     
-}
+// }
 
-const handleFilterCheckboxChange = (event) => {
-    const {name} = event.target;
-    setblacklistCheckboxes(!prevblacklistCheckboxes[name])
+// const handleFilterCheckboxChange = (event) => {
+//     const {name} = event.target;
+//     setblacklistCheckboxes(!prevblacklistCheckboxes[name])
 
-    // this.setState(prevState => ({
-    //     blacklistCheckboxes: {
-    //         ...prevState.blacklistCheckboxes,
-    //         [name]: !prevState.blacklistCheckboxes[name]
-    //     }
-    // }))
-}
+//     // this.setState(prevState => ({
+//     //     blacklistCheckboxes: {
+//     //         ...prevState.blacklistCheckboxes,
+//     //         [name]: !prevState.blacklistCheckboxes[name]
+//     //     }
+//     // }))
+// }
 
-const createFilterCheckbox = filter => (
-    <Checkbox
-        label={filter}
-        isSelected={blacklistCheckboxes[filter]}
-        onChange={handleFilterCheckboxChange}
-        key={filter}
-    />
-)
+// const createFilterCheckbox = filter => (
+//     <Checkbox
+//         label={filter}
+//         isSelected={blacklistCheckboxes[filter]}
+//         onChange={handleFilterCheckboxChange}
+//         key={filter}
+//     />
+// )
 
-const createTypeCheckbox = type => (
-    <Checkbox
-        label={type}
-        isSelected={typeCheckboxes[type]}
-        onChange={handleTypeCheckboxChange}
-        key={type}
-    />
-)
+// const createTypeCheckbox = type => (
+//     <Checkbox
+//         label={type}
+//         isSelected={typeCheckboxes[type]}
+//         onChange={handleTypeCheckboxChange}
+//         key={type}
+//     />
+// )
 
-const createTypeCheckboxes = () => Type.map(createTypeCheckbox);
+// const createTypeCheckboxes = () => Type.map(createTypeCheckbox);
 
-const createFilterCheckboxes = () => BlackList.map(createFilterCheckbox)
+// const createFilterCheckboxes = () => BlackList.map(createFilterCheckbox)
 
-  return (
-    <div className="container">
-        <div className="contentTitle">Types of Jokes - choose 1 or many</div>
-        {createTypeCheckboxes()}
-        <div className="contentTitle">Joke Filters - check any you would like to filter out</div> 
-        {createFilterCheckboxes()}
-        <br />
-        <form onSubmit={getRandomJoke}>
-        <button className="button" >Get Random Joke</button>
+//   return (
+//     <div className="container">
+//         <div className="contentTitle">Types of Jokes - choose 1 or many</div>
+//         {createTypeCheckboxes()}
+//         <div className="contentTitle">Joke Filters - check any you would like to filter out</div> 
+//         {createFilterCheckboxes()}
+//         <br />
+//         <form onSubmit={getRandomJoke}>
+//         <button className="button" >Get Random Joke</button>
 
-        <div className="content">{item}</div>
-        </form>
-    </div>
-  )
-  }
+//         <div className="content">{item}</div>
+//         </form>
+//     </div>
+//   )
+   }
 
 
-export default Jokes;
+ export default Jokes;
