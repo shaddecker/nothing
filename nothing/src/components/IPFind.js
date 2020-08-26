@@ -1,6 +1,7 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
 import axios from 'axios';
-import MapPopup from './MapPopup'
+import MapPopup from './MapPopup';
+import "./Component.css";
 
 const publicIp = require('public-ip'); 
 // npm install public-ip

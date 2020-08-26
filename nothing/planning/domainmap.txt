@@ -5,7 +5,7 @@ Index
             Advice
             CatDogFacts
             IPFind
-                MapComponent
+                MapPopup
             Jokes
                 Checkbox
         Footer
