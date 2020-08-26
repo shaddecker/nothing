@@ -6,7 +6,7 @@ function Advice () {
     const [item, setItem] = useState("")
 
         
-getRandomAdvice = async(event) =>{
+const getRandomAdvice = async(event) =>{
     event.preventDefault();
     let response = await axios.get(API, {
 
@@ -18,8 +18,8 @@ getRandomAdvice = async(event) =>{
 
   return (
     <div className="container">
-        <button className="button" onClick={this.getRandomAdvice} >Get Random Advice</button>
-        <div className="content">{this.state.item}</div>
+        <button className="button" onClick={getRandomAdvice} >Get Random Advice</button>
+        <div className="content">{item}</div>
     </div>
   )
   
