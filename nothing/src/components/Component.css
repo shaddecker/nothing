@@ -139,6 +139,11 @@ body{
     font-size:18px;
     margin-right: 10%;
 }
+.contentXL{
+    padding-top: 40px;
+    padding-left: 20px;
+    font-size:100px;
+}
 .contentSmall{
     padding-top: 5px;
     padding-left: 20px;
