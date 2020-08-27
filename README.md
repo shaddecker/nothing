@@ -22,3 +22,5 @@ React components used:
 * axios
 * public-ip
 * react-router-dom
+* react-animations
+* styled-components
