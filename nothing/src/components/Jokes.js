@@ -5,22 +5,12 @@ import Checkbox from "./Checkbox"
 const Type=["Programming","Miscellaneous","Dark","Pun"];
 const BlackList=["nsfw","religious","political","racist","sexist"];
 
-function usePrevious(value) {
-    const ref = useRef();
-    useEffect(() => {
-      ref.current = value;
-    });
-    return ref.current;
-  }
 
  function Jokes () {
     const [API, setAPI] = useState("https://sv443.net/jokeapi/v2/joke/")
     const [item, setItem] = useState('')
-    const [joketypes, setJoketypes] = useState('')
     const [typeCheckboxes, settypeCheckboxes] = useState(Type.reduce((types, type) => ({...types, [type]: false}),{}))
     const [blacklistCheckboxes, setblacklistCheckboxes] = useState(BlackList.reduce((filters, filter) => ({...filters, [filter]: false}),{}))
-    const prevtypeCheckboxes = usePrevious(typeCheckboxes)
-    const prevblacklistCheckboxes = usePrevious(blacklistCheckboxes)
     
 
 
@@ -57,22 +47,13 @@ const getRandomJoke = async(event) =>{
 
 const handleTypeCheckboxChange = (event) => {
     const {name} = event.target;
-
-    settypeCheckboxes((prevState) => ({...prevState, [name]:!prevtypeCheckboxes})
-    )
+    settypeCheckboxes((prevState) => ({ ...prevState, [name]: !typeCheckboxes[name], })); 
 }
 
 const handleFilterCheckboxChange = (event) => {
     const {name} = event.target;
-    setblacklistCheckboxes((prevState) =>({...prevState, [name]:!prevblacklistCheckboxes})
+    setblacklistCheckboxes((prevState) =>({...prevState, [name]:!blacklistCheckboxes[name]})
         )
-
-    // this.setState(prevState => ({
-    //     blacklistCheckboxes: {
-    //         ...prevState.blacklistCheckboxes,
-    //         [name]: !prevState.blacklistCheckboxes[name]
-    //     }
-    // }))
 }
 
 const createFilterCheckbox = filter => (
