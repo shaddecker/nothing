@@ -70,7 +70,7 @@ class Trivia extends Component  {
 
   render(){
   return (
-    <div className="container">
+    <div className="containerTrivia">
       <audio id="theme" loop>
         <source src="/sounds/theme.mp3" type="audio/mpeg"/>
       </audio>

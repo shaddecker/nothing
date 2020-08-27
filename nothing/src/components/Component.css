@@ -92,10 +92,11 @@ body{
 
 .containerHome{
     background-image: url("/images/universe.jpg");
+    background-size: cover;
     color: white;
     border: 1px solid black;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 70vh;
     padding: 20px;
     position: absolute;
 }
@@ -105,23 +106,61 @@ body{
     background-size: cover;
     color: white;
     border: 1px solid black;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 80vh;
     padding: 20px;
     position: absolute;
 }
-
+.containerTrivia{
+    background-image: url("/images/jeopardy_logo.jpg");
+    background-size: cover;
+    color: white;
+    border: 1px solid black;
+    width: 100vw;
+    height: 80vh;
+    padding: 20px;
+    position: absolute;
+}
+.containerCatDog{    
+    background-image: url("/images/catsanddogs.jpg");
+    background-size: cover; 
+    color: white;
+    border: 1px solid black;
+    width: 100vw;
+    height: 75vh;
+    padding: 20px;
+    position: absolute;
+}
 .containerChuck{
     background-image: url("/images/chuck-norris.jpg");
     background-size: cover;
     color: white;
     border: 1px solid black;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 80vh;
     padding: 20px;
     position: absolute;
 }
-
+.containerJokes{
+    background-image: url("/images/clown.jpg");
+    background-size: cover;
+    color: white;
+    border: 1px solid black;
+    width: 100vw;
+    height: 80vh;
+    padding: 20px;
+    position: absolute;
+}
+.containerIPFind{
+    background-image: url("/images/ipfind.jpg");
+    background-size: cover;
+    color: white;
+    border: 1px solid black;
+    width: 100vw;
+    height: 80vh;
+    padding: 20px;
+    position: absolute;
+}
 .button{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 14px;
@@ -162,7 +201,8 @@ body{
 .contentSmall{
     padding-top: 5px;
     padding-left: 20px;
-    font-size:14px;
+    font-size:16px;
+    color: red;
 }
 .contentTitle{
     padding-top: 10px;
