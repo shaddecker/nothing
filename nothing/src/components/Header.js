@@ -18,9 +18,6 @@ const Header = () => {
         <div className="nav5"><Link to='/jokes'>Jokes</Link></div>
         <div className="nav6"><Link to='/catdogfacts'>Cat|Dog Facts</Link></div>
         <div className="nav7"><Link to='/ipfind'>Find my IP</Link></div>
-        <div className="nav8">Random 8</div>
-        <div className="nav9">Random 9</div>
-        <div className="nav10">Random 10</div>
       </nav>
     </div>
   )

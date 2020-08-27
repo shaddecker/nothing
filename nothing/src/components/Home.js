@@ -11,7 +11,7 @@ function Home (){
   const ZoomIn = styled.div`animation: 50s ${keyframes`${zoomIn}`}` ;
 
   return (
-    <div className="container">      
+    <div className="containerHome">      
       <div className="content">
         <FadeIn1>This is the web site about nothing in particular.</FadeIn1>
         <FadeIn2>We have just accumulated a bunch of jokes, trivia and other random stuff for your entertainment.</FadeIn2>

@@ -18,7 +18,7 @@ const getRandomAdvice = async(event) =>{
 
 
   return (
-    <div className="container">
+    <div className="containerAdvise">
         <button className="button" onClick={getRandomAdvice} >Get Random Advice</button>
         <div className="content">{item}</div>
     </div>
