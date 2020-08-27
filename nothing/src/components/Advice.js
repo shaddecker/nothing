@@ -18,7 +18,8 @@ const getRandomAdvice = async(event) =>{
 
 
   return (
-    <div className="containerAdvise">
+    <div className="containerAdvice">
+        <div><img src="/images/CharlieBrownAdvice.png" alt="" width="300px"/></div>
         <button className="button" onClick={getRandomAdvice} >Get Random Advice</button>
         <div className="content">{item}</div>
     </div>

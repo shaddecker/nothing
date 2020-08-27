@@ -26,7 +26,8 @@ class CatDogFact extends Component  {
   render(){
   return (
     <div className="container">
-      <form onSubmit={this.getRandomFact}>   
+      <form onSubmit={this.getRandomFact}> 
+      <div><img src="/images/catdog.jpg" alt="" width="300px"/></div>  
         <div>
             <select className="select" onChange={this.changeSelection}>
                 <option value="cat">Cat</option>

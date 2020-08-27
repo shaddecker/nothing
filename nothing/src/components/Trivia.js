@@ -77,6 +77,7 @@ class Trivia extends Component  {
       <audio id="buzzer">
         <source src="/sounds/buzzer.mp3" type="audio/mpeg"/>
       </audio>
+      <div><img src="/images/trivia2.png" alt="" width="300px"/></div>
       <form onSubmit={this.getTriviaQuestion}>    
       <div>{(!this.state.running) ? <button className="button">Next Trivia Question</button>: null}</div>
       </form>
