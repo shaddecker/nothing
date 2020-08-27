@@ -12,9 +12,10 @@ class Trivia extends Component  {
       timer: 10,
       themeSong: {},
       buzzer: {},
+      running: false,
     }
 
-    let interval;
+    
   }
 
   showAnswer = () => {
@@ -24,6 +25,7 @@ class Trivia extends Component  {
     elementCountDown.style.display = "none";
     this.state.themeSong.pause();
     this.state.buzzer.play();
+    this.setState({running: false});
   }
 
   hideAnswer = () => {
@@ -62,20 +64,22 @@ class Trivia extends Component  {
     this.interval = setInterval(this.updateCounter,1000);
     this.setState({themeSong: document.getElementById("theme")});
     this.setState({buzzer: document.getElementById("buzzer")});
-    this.state.themeSong.play()
+    this.state.themeSong.play();
+    this.setState({running: true});
   }
 
   render(){
   return (
     <div className="container">
-      <audio id="theme">
+      <audio id="theme" loop>
         <source src="/sounds/theme.mp3" type="audio/mpeg"/>
       </audio>
       <audio id="buzzer">
         <source src="/sounds/buzzer.mp3" type="audio/mpeg"/>
       </audio>
+      <div><img src="/images/trivia2.png" alt="" width="300px"/></div>
       <form onSubmit={this.getTriviaQuestion}>    
-      <div><button className="button">Next Trivia Question</button></div>
+      <div>{(!this.state.running) ? <button className="button">Next Trivia Question</button>: null}</div>
       </form>
       <div className="countDown">Time Remaining: {this.state.timer}</div>
       <div className="contentTitle">Category: {this.state.triviaCategory}</div>

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Modal from "react-modal";
-import style from "./Component.css";  
+import "./Component.css";  
 
 const customStyles = {
   content : {

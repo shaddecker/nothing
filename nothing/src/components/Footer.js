@@ -9,7 +9,7 @@ const Footer = () => {
       <footer className="footerContainer">
         <div className="footerTitle">
           Site created by team Yada Yada Yada <br/>
-          Using <a href="https://reactjs.org/" target="_blank">React</a> and <a href="https://www.npmjs.com/package/axios" target="_blank">Axios</a><br/>
+          Using <a href="https://reactjs.org/" target="_blank" rel="noopener noreferrer">React</a> and <a href="https://www.npmjs.com/package/axios" target="_blank"  rel="noopener noreferrer">Axios</a><br/>
           Last Modified: {lastModified}
         </div>
         <div className="footerDeadSpace"></div>

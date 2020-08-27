@@ -13,7 +13,7 @@ function usePrevious(value) {
     return ref.current;
   }
 
-function Jokes () {
+ function Jokes () {
     const [API, setAPI] = useState("https://sv443.net/jokeapi/v2/joke/")
     const [item, setItem] = useState('')
     const [joketypes, setJoketypes] = useState('')
@@ -99,6 +99,7 @@ const createFilterCheckboxes = () => BlackList.map(createFilterCheckbox)
 
   return (
     <div className="container">
+        <div><img src="/images/noodledadjoke.jpg" alt="" width="300px"/></div>
         <div className="contentTitle">Types of Jokes - choose 1 or many</div>
         {createTypeCheckboxes()}
         <div className="contentTitle">Joke Filters - check any you would like to filter out</div> 
