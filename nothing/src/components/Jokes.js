@@ -58,13 +58,14 @@ const getRandomJoke = async(event) =>{
 const handleTypeCheckboxChange = (event) => {
     const {name} = event.target;
 
-    settypeCheckboxes(!prevtypeCheckboxes[name])
-    
+    settypeCheckboxes((prevState) => ({...prevState, [name]:!prevtypeCheckboxes})
+    )
 }
 
 const handleFilterCheckboxChange = (event) => {
     const {name} = event.target;
-    setblacklistCheckboxes(!prevblacklistCheckboxes[name])
+    setblacklistCheckboxes((prevState) =>({...prevState, [name]:!prevblacklistCheckboxes})
+        )
 
     // this.setState(prevState => ({
     //     blacklistCheckboxes: {
