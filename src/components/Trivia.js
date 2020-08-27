@@ -78,8 +78,8 @@ class Trivia extends Component  {
         <source src="/sounds/buzzer.mp3" type="audio/mpeg"/>
       </audio>
       <div><img src="/images/trivia2.png" alt="" width="300px"/></div>
-      <form onSubmit={this.getTriviaQuestion}>    
-      <div>{(!this.state.running) ? <button className="button">Next Trivia Question</button>: null}</div>
+      <form className="triviaButton" onSubmit={this.getTriviaQuestion}>    
+      <div >{(!this.state.running) ? <button className="button">Next Trivia Question</button>: null}</div>
       </form>
       <div className="countDown">Time Remaining: {this.state.timer}</div>
       <div className="contentTitle">Category: {this.state.triviaCategory}</div>

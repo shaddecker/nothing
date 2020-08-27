@@ -15,7 +15,7 @@ function Chuck () {
   
   return (
     <div className="containerChuck">
-      <div className="content">{chuckAPI}</div>
+      <div className="content" style={{backgroundColor: chuckAPI? 'black':'transparent',}}>{chuckAPI}</div>
       <div><button className="button" onClick={getChuckJoke}>Get Random Chuck Norris Joke</button></div>
     </div>
   )

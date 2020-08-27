@@ -36,7 +36,7 @@ class CatDogFact extends Component  {
         </div> 
         <div><button className="button">Get a Random Fact</button></div>
       </form>
-      <div className="content" style={{color: (0, 119, 128), backgroundColor: this.state.factAPI? 'white':'transparent',}}>{this.state.factAPI}</div>
+      <div className="content" style={{backgroundColor: this.state.factAPI? 'white':'transparent',}}>{this.state.factAPI}</div>
     </div>
   )
   }
