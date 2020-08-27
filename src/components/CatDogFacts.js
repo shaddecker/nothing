@@ -6,7 +6,7 @@ class CatDogFact extends Component  {
   constructor (){
     super()
     this.state = {
-      factAPI: {},
+      factAPI: "",
       selection: "",
     }
   }
@@ -19,7 +19,7 @@ class CatDogFact extends Component  {
   getRandomFact = async (event) => {
     event.preventDefault();
     let response = await axios.get(`https://cat-fact.herokuapp.com/facts/random?animal_type=${this.state.selection}&amount=1`);
-    this.setState({factAPI: response.data});  
+    this.setState({factAPI: response.data.text});  
   }
 
 
@@ -36,7 +36,7 @@ class CatDogFact extends Component  {
         </div> 
         <div><button className="button">Get a Random Fact</button></div>
       </form>
-      <div className="content">{this.state.factAPI.text}</div>
+      <div className="content" style={{color: (0, 119, 128), backgroundColor: this.state.factAPI? 'white':'transparent',}}>{this.state.factAPI}</div>
     </div>
   )
   }
