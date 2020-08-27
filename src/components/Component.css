@@ -4,6 +4,7 @@ body{
     width: 100%;
     margin: 0px;
     padding: 0px;
+    background-color: black;
 }
 .navContainer{
     color: white;
@@ -92,10 +93,12 @@ body{
 
 .containerHome{
     background-image: url("/images/universe.jpg");
+    background-image: url("/images/nothingsite.jpg");
     background-size: cover;
-    color: white;
+    
+    color:white;
     border: 1px solid black;
-    width: 100vw;
+    /* width: 100vw; */
     height: 75vh;
     padding: 20px;
     position: absolute;
@@ -354,7 +357,7 @@ a:active{
 }
 
 .App-logo {
-    height: 10vmin;
+    height: 9vmin;
     pointer-events: none;
   }
   
