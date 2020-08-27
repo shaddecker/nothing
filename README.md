@@ -5,7 +5,7 @@ the app about nothing - inspired by Seinfeld, the show about nothing
 A collection of different API's for you enjoyment, amusement and/or eduction.
 
 ## Wire Frame
-![Wireframe](/nothing/planning/nothing_site.png "Nothing wire frame")
+![Wireframe](/planning/nothing_site.png "Nothing wire frame")
 
 ## List of API's used
 * [Advice Slip](https://api.adviceslip.com/) - random advice
