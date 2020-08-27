@@ -61,8 +61,7 @@ class IPFind extends Component {
 
     render(){
         return(
-        <div className="container">
-            <div><img src="/images/find_your_ip.jpg" alt="" width="300px"/></div>
+        <div className="containerIPFind">
             <div className="contentTitle">Find your IP address and physical address</div>
             <div className="contentTitle">Step 1:</div>
             <form onSubmit={this.getIP}>
