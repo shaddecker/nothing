@@ -11,7 +11,7 @@ class IPFind extends Component {
     super()
     this.state={
         api_key: "?access_key=b5b55334d91c20c222ff51ed1e8f0732",
-        api_base_url: "https://api.ipstack.com/",
+        api_base_url: "https://cors-anywhere.herokuapp.com/http://api.ipstack.com/",
         ip4:"",
         ipInfo:[],
         flag : "",
