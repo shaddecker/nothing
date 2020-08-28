@@ -93,15 +93,18 @@ body{
 
 .containerHome{
     background-image: url("/images/universe.jpg");
-    background-image: url("/images/nothingsite.jpg");
-    background-size: cover;
-    
+    background-size: cover;    
     color:white;
     border: 1px solid black;
-    /* width: 100vw; */
+    width: 100vw;
     height: 75vh;
     padding: 20px;
     position: absolute;
+}
+
+.containerHome img{
+    height: 50%;
+    width: 50%;
 }
 
 .containerAdvice{
