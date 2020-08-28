@@ -2,18 +2,14 @@ import React, {useState} from 'react'
 import axios from 'axios'
 
 function Advice () {
-    const [API, setAPI] = useState("")
+    const [API, setAPI] = useState("https://api.adviceslip.com/advice")
     const [item, setItem] = useState("")
 
         
 const getRandomAdvice = async(event) =>{
     event.preventDefault();
-    setAPI("https://api.adviceslip.com/advice");
-    let response = await axios.get(API, {
-
-    })
-    console.log(response)
-    setItem(response.data.slip.advice)
+    let response = await axios.get(API);
+    setItem(response.data.slip.advice);
 }
 
 
